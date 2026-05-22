@@ -26,7 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build project
-        run: npx vite build --base=/${{ github.event.repository.name }}/
+        run: npm run build
+      - name: Fix 404 Error
+        run: cp dist/index.html dist/404.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
